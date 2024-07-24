@@ -7,7 +7,10 @@ def my_flow(name: str = "World"):
 
 
 if __name__ == "__main__":
-    my_flow.from_source().deploy(
+    my_flow.from_source(
+        source="https://github.com/PrefectHQ/pacc-2024-v5.git",
+        entrypoint="104/basic_deployment.py:my_flow",
+    ).deploy(
         name="pacc-deployment-process-1",
         work_pool_name="pacc-process-pool",
         tags=["pacc", "hello"],
